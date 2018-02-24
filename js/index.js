@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     //  Instantiate IOTA with provider 'http://localhost:14265'
     var iota = new IOTA({
-        'host': 'http://localhost',
+        'host': 'http://' + window.location.hostname,
         'port': 14265
     });
 

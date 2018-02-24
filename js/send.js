@@ -4,7 +4,7 @@ $(document).ready(function() {
     //  Instantiate IOTA
     //
     var iota = new IOTA({
-        'host': 'http://localhost',
+        'host': 'http://' + window.location.hostname,
         'port': 14265
     });
 
