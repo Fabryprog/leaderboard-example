@@ -47,21 +47,24 @@ $(document).ready(function() {
         // Command to be sent to the IOTA API
         // Gets the latest transfers for the specified seed
         iota.api.getAccountData(seed, function(e, accountData) {
+            if(!e) {
+              console.log("Account data", accountData);
 
-            console.log("Account data", accountData);
+              // Update address
+              if (!address && accountData && accountData.addresses && accountData.addresses[0]) {
 
-            // Update address
-            if (!address && accountData.addresses[0]) {
+                  address = iota.utils.addChecksum(accountData.addresses[accountData.addresses.length - 1]);
 
-                address = iota.utils.addChecksum(accountData.addresses[accountData.addresses.length - 1]);
+                  updateAddressHTML(address);
+              }
 
-                updateAddressHTML(address);
+              balance = accountData.balance;
+
+              // Update total balance
+              updateBalanceHTML(balance);
+            } else {
+              console.error("ACCOUNT DATA ERROR", e);
             }
-
-            balance = accountData.balance;
-
-            // Update total balance
-            updateBalanceHTML(balance);
         })
     }
 
