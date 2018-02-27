@@ -83,6 +83,8 @@ $(document).ready(function() {
                 address = address;
                 // Update the HTML on the site
                 updateAddressHTML(address)
+            } else {
+              console.error("ADDRESS ERROR", e);
             }
         })
     }
