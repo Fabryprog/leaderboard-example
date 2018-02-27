@@ -64,6 +64,9 @@ $(document).ready(function() {
               updateBalanceHTML(balance);
             } else {
               console.error("ACCOUNT DATA ERROR", e);
+
+              var html = '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>ERROR!</strong>' + e + '.</div>'
+              $("#send__success").html(html);
             }
         })
     }
@@ -88,6 +91,9 @@ $(document).ready(function() {
                 updateAddressHTML(address)
             } else {
               console.error("ADDRESS ERROR", e);
+
+              var html = '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>ERROR!</strong>' + e + '.</div>'
+              $("#send__success").html(html);
             }
         })
     }
@@ -113,7 +119,7 @@ $(document).ready(function() {
             if (e){
 
                 var html = '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>ERROR!</strong>' + e + '.</div>'
-                $("#send__success").html(JSON.stringify());
+                $("#send__success").html(html);
 
                 $("#submit").toggleClass("disabled");
 
