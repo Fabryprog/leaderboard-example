@@ -195,7 +195,7 @@ $(document).ready(function() {
         var address = $("#address").val();
         var message = $("#message").val();
 
-        if (!name || !value || !message)
+        if (!name || isNaN(value) || !message)
             return
 
         if (value > balance) {
